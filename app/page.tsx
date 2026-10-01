@@ -57,9 +57,12 @@ export default function Home() {
           </a>
           <a
             href={ORYSTUDIO_URL}
-            className="rounded-full border border-paper/20 px-5 py-3 text-sm font-medium transition hover:border-paper/60"
+            className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-3 text-sm font-medium transition hover:border-paper/60"
           >
-            Besoin d&apos;un site web ? öRyStudio →
+            Besoin d&apos;un site web ? öRyStudio
+            <svg aria-hidden viewBox="0 0 16 16" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
           </a>
         </div>
       </section>
