@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://orylab.fr"),
-  title: "öRyLab — en construction",
+  title: "öRyLab — Créations 3D · site en construction",
   description:
     "öRyLab, le laboratoire R&D de Grégory Garcia : impression 3D, objets conçus et fabriqués à Harnes. Site en construction.",
   openGraph: {

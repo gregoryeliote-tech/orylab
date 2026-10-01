@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // À personnaliser
 const CONTACT_EMAIL = "contact@orylab.fr";
 const ORYSTUDIO_URL = "https://orystudio.fr";
@@ -20,7 +22,7 @@ function Dots({ className = "" }: { className?: string }) {
 export default function Home() {
   return (
     <main className="layers relative flex min-h-svh flex-col">
-      <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 pt-6 sm:px-8 sm:pt-8">
+      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 pt-6 sm:px-8 sm:pt-8">
         <span className="text-lg font-semibold tracking-tight">öRyLab</span>
         <span className="flex items-center gap-2 rounded-full border border-paper/15 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted">
           <span className="size-1.5 rounded-full bg-filament" />
@@ -28,46 +30,64 @@ export default function Home() {
         </span>
       </header>
 
-      <section className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 py-16 sm:px-8">
-        <Dots className="mb-6 text-6xl sm:text-8xl" />
-        <h1 className="max-w-3xl text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.95] tracking-tight">
-          Le labo est en train d&apos;imprimer<span className="text-filament">.</span>
-        </h1>
-        <p className="mt-6 max-w-xl text-lg text-paper/70">
-          öRyLab, c&apos;est l&apos;atelier R&amp;D de Grégory Garcia : impression 3D, objets conçus de A à Z et
-          expérimentations. Le site arrive bientôt, couche après couche.
-        </p>
+      <section className="mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+        <div>
+          <p className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-filament">
+            <Dots className="text-3xl" />
+            Créations 3D
+          </p>
+          <h1 className="text-[clamp(2.4rem,6.5vw,4.75rem)] lg:text-[3.6rem] xl:text-[4rem] font-semibold leading-[0.95] tracking-tight">
+            Le labo est en train d&apos;imprimer<span className="text-filament">.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-paper/70">
+            öRyLab, c&apos;est l&apos;atelier de créations 3D de Grégory Garcia : objets conçus de A à Z,
+            imprimés sur place et expérimentations. Le site arrive bientôt, couche après couche.
+          </p>
 
-        <div className="mt-10 max-w-md" role="presentation">
-          <div className="flex justify-between font-mono text-[11px] uppercase tracking-widest text-muted">
-            <span>Impression du site</span>
-            <span>Couche 42 / 100</span>
+          <div className="mt-10 max-w-md" role="presentation">
+            <div className="flex justify-between font-mono text-[11px] uppercase tracking-widest text-muted">
+              <span>Impression du site</span>
+              <span>Couche 42 / 100</span>
+            </div>
+            <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-paper/10">
+              <div className="print-bar h-full w-[42%] rounded-full bg-filament" />
+            </div>
           </div>
-          <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-paper/10">
-            <div className="print-bar h-full w-[42%] rounded-full bg-filament" />
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="rounded-full bg-paper px-5 py-3 text-sm font-medium text-ink transition hover:bg-filament hover:text-paper"
+            >
+              Me contacter
+            </a>
+            <a
+              href={ORYSTUDIO_URL}
+              className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-3 text-sm font-medium transition hover:border-paper/60"
+            >
+              Besoin d&apos;un site web ? öRyStudio
+              <svg aria-hidden viewBox="0 0 16 16" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="rounded-full bg-paper px-5 py-3 text-sm font-medium text-ink transition hover:bg-filament hover:text-paper"
-          >
-            Me contacter
-          </a>
-          <a
-            href={ORYSTUDIO_URL}
-            className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-5 py-3 text-sm font-medium transition hover:border-paper/60"
-          >
-            Besoin d&apos;un site web ? öRyStudio
-            <svg aria-hidden viewBox="0 0 16 16" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 8h10M9 4l4 4-4 4" />
-            </svg>
-          </a>
-        </div>
+        <figure className="relative isolate order-first mx-auto w-full max-w-xl lg:order-none lg:max-w-none">
+          <div aria-hidden className="absolute -inset-6 -z-10 rounded-[2rem] bg-filament/15 blur-3xl" />
+          <Image
+            src="/carte-orylab.jpg"
+            alt="Carte de visite öRyLab — Créations 3D"
+            width={1600}
+            height={1035}
+            priority
+            sizes="(min-width: 1024px) 45vw, 92vw"
+            className="w-full rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-paper/10 lg:rotate-[1.5deg]"
+          />
+        </figure>
       </section>
 
-      <section className="mx-auto w-full max-w-5xl px-5 pb-16 sm:px-8">
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8">
         <p className="mb-5 font-mono text-[11px] uppercase tracking-widest text-muted">Bientôt au labo</p>
         <ul className="grid gap-px overflow-hidden rounded-2xl border border-paper/10 bg-paper/10 sm:grid-cols-3">
           {teasers.map((t) => (
@@ -80,7 +100,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <footer className="mx-auto flex w-full max-w-5xl flex-col gap-2 border-t border-paper/10 px-5 py-6 font-mono text-[11px] uppercase tracking-widest text-muted sm:flex-row sm:justify-between sm:px-8">
+      <footer className="mx-auto flex w-full max-w-6xl flex-col gap-2 border-t border-paper/10 px-5 py-6 font-mono text-[11px] uppercase tracking-widest text-muted sm:flex-row sm:justify-between sm:px-8">
         <span>© {new Date().getFullYear()} öRyLab · Harnes, Hauts-de-France</span>
         <span>
           Une marque <span className="text-paper">öRy</span>
